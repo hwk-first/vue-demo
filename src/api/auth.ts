@@ -1,4 +1,5 @@
 import { request } from '@/utils/request'
+import { API_ENDPOINTS, API_SUCCESS_CODE } from '@/config/api'
 
 export interface LoginParams {
   username: string
@@ -22,12 +23,12 @@ interface LoginResponse {
 
 /** 调用后端登录接口 */
 export async function login(params: LoginParams): Promise<LoginResult> {
-  const res = await request<LoginResponse>('/api/login', {
+  const res = await request<LoginResponse>(API_ENDPOINTS.auth.login, {
     method: 'POST',
     body: JSON.stringify(params),
   })
 
-  if (res.code === 200 && res.data?.token) {
+  if (res.code === API_SUCCESS_CODE && res.data?.token) {
     return { token: res.data.token, username: res.data.username || params.username }
   }
 

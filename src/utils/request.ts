@@ -1,7 +1,5 @@
 import { getToken } from './token'
-
-/** 后端服务地址，统一在此处维护 */
-export const BASE_URL = 'http://localhost:5000'
+import { API_BASE_URL } from '@/config/api'
 
 export async function request<T>(url: string, options: RequestInit = {}): Promise<T> {
   const token = getToken()
@@ -16,7 +14,7 @@ export async function request<T>(url: string, options: RequestInit = {}): Promis
   }
 
   // 相对路径自动拼接后端地址，绝对路径直接使用
-  const fullUrl = url.startsWith('http') ? url : `${BASE_URL}${url}`
+  const fullUrl = url.startsWith('http') ? url : `${API_BASE_URL}${url}`
   const response = await fetch(fullUrl, { ...options, headers })
 
   if (!response.ok) {
