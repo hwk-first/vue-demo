@@ -49,7 +49,7 @@ async function handleLogin() {
     <!-- 右侧登录区域 -->
     <div class="login-form-wrapper">
       <el-form ref="formRef" :model="form" :rules="rules" class="login-card">
-        <h1 class="login-title">测试平台</h1>
+        <h1 class="login-title">测试平台test</h1>
 
         <el-form-item prop="username">
           <el-input
