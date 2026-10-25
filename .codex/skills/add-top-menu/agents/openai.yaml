@@ -1,0 +1,3 @@
+interface:
+  display_name: "Add Top Menu"
+  short_description: "新增一级菜单：页面 + 路由 + 侧边栏 + 面包屑"
